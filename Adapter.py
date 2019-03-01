@@ -29,4 +29,6 @@ class System:
     def get_lightening(self, light_mapper):
         self.lightmap = light_mapper.lighten(self.map)
     
-    ...
+    def get_all_answer(self):
+        pass
+

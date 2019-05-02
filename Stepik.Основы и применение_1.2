@@ -20,7 +20,6 @@ objects = [1, 2, 1, 2, 3] # будем считать, что одинаковы
 
 objects = [1, 2, 3, 1, 2, 2]
 checker = set()
-
 for obj in objects:
     if id(obj) not in checker:
         checker.add(id(obj))

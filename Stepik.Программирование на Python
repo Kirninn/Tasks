@@ -165,3 +165,40 @@ elif a == 'прямоугольник':
 elif a == 'круг':
   q = int(input())
   print(q ** 2 * 3.14)
+
+Задание № 7.
+Напишите программу, которая получает на вход три целых числа, по одному числу в строке, 
+и выводит на консоль в три строки сначала максимальное, потом минимальное, после чего оставшееся число.
+На ввод могут подаваться и повторяющиеся числа.
+
+Решение № 1.
+a = int(input())
+s = int(input())
+d = int(input())
+
+q = [a, s, d]
+
+if max(q) == a and min(q) == s:
+  print(max(q))
+  print(min(q))
+  print(d)
+elif max(q) == a and min(q) == d:
+  print(max(q))
+  print(min(q))
+  print(s)
+elif max(q) == s and min(q) == a:
+  print(max(q))
+  print(min(q))
+  print(d)
+elif max(q) == s and min(q) == d:
+  print(max(q))
+  print(min(q))
+  print(a)
+elif max(q) == d and min(q) == a:
+  print(max(q))
+  print(min(q))
+  print(s)
+elif max(q) == d and min(q) == s:
+  print(max(q))
+  print(min(q))
+  print(a)

@@ -425,3 +425,27 @@ if len(lst) == 1:
 else:
     for i in range(len(lst)):
         print(lst[i-1] + lst[i+1-len(lst)], end=' ')
+
+Задание № 15
+
+Напишите программу, которая принимает на вход список чисел в одной строке и выводит на экран в одну строку значения, 
+которые повторяются в нём более одного раза.
+Для решения задачи может пригодиться метод sort списка.
+Выводимые числа не должны повторяться, порядок их вывода может быть произвольным.
+
+Решение № 1.
+
+input_list = [int(i) for i in input().split()]
+open_list = []
+for i in input_list:
+  if open_list.count(i) != 1:
+    if input_list.count(i) >= 2:
+      open_list.append(i)
+  else:
+    pass
+print(' '.join([str(i) for i in open_list]))
+
+Решение № 2.
+
+s = input().split()
+print (*(i for i in set(s) if s.count(i) > 1))

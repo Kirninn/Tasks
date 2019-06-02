@@ -521,4 +521,32 @@ for i in range(1,n+1):
 for i in range(n):
     print(s[i], end =' ')
  
+Задание № 18.
+ 
+Напишите программу, которая считывает список чисел lst из первой строки и число x из второй строки, 
+которая выводит все позиции, на которых встречается число x в переданном списке lst.
+Позиции нумеруются с нуля, если число x не встречается в списке, вывести строку "Отсутствует" (без кавычек, с большой буквы).
+Позиции должны быть выведены в одну строку, по возрастанию абсолютного значения.
+
+Решение № 1.
+
+in_list = input().split()
+number = str(input())
+open_list = []
+
+for index, item in enumerate(in_list):
+    if number == item:
+        open_list.append(index)
+        print(index, end = ' ')
+    if number not in in_list:
+        print('Отсутствует')
+        break
+
+Решение № 2.
+
+l, n = [int(i) for i in input().split()], int(input())
+print(*[x for x in range(len(l)) if l[x]==n] if n in l else ["Отсутствует"])
+
+
+
  

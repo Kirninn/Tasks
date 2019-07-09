@@ -602,3 +602,37 @@ a = max(numdexr_max)
 for index, items in enumerate(open_list_max):
 	if items[1] == a:
 		print(' '.join([str(i) for i in items]))
+
+Задание № 21.
+
+Имеется файл с данными по успеваемости абитуриентов. Он представляет из себя набор строк,
+где в каждой строке записана следующая информация:
+Фамилия;Оценка_по_математике;Оценка_по_физике;Оценка_по_русскому_языку
+Поля внутри строки разделены точкой с запятой, оценки — целые числа.
+Напишите программу, которая считывает файл с подобной структурой и для каждого абитуриента выводит его среднюю оценку 
+по этим трём предметам на отдельной строке, соответствующей этому абитуриенту.
+Также в конце файла, на отдельной строке, через пробел запишите средние баллы по математике, физике и русскому языку 
+по всем абитуриентам.
+В качестве ответа на задание прикрепите полученный файл со средними оценками.
+Примечание. Для разбиения строки на части по символу ';' можно использовать метод split следующим образом.
+
+Решение № 1.
+
+all_mark_maths = 0
+all_mark_physics = 0
+all_mark_rus = 0
+students_count = 0 
+
+with open('dataset_3363_4.txt', 'r') as f:
+	for line in f:
+		student_data = line.strip().split(';')
+		students_count += 1
+		mark_maths = int(student_data[1])
+		all_mark_maths += mark_maths
+		mark_physics = int(student_data[2])
+		all_mark_physics += mark_physics
+		mark_rus = int(student_data[3])
+		all_mark_rus += mark_rus
+		print((mark_maths + mark_physics + mark_rus) / 3)
+
+print(all_mark_maths / students_count, all_mark_physics / students_count, all_mark_rus / students_count)

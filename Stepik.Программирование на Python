@@ -636,3 +636,24 @@ with open('dataset_3363_4.txt', 'r') as f:
 		print((mark_maths + mark_physics + mark_rus) / 3)
 
 print(all_mark_maths / students_count, all_mark_physics / students_count, all_mark_rus / students_count)
+
+Задание № 22.
+
+Скачайте файл. В нём указан адрес другого файла, который нужно скачать с использованием модуля requests и посчитать число строк в нём.
+Используйте функцию get для получения файла (имеет смысл вызвать метод strip к передаваемому параметру, чтобы убрать пробельные символы 
+по краям).
+После получения файла вы можете проверить результат, обратившись к полю text. Если результат работы скрипта не принимается, 
+проверьте поле url на правильность. Для подсчёта количества строк разбейте текст с помощью метода splitlines.
+В поле ответа введите одно число или отправьте файл, содержащий одно число.
+
+Решение № 1.
+
+import requests
+
+line_in_text = 0
+
+r = requests.get('https://stepic.org/media/attachments/course67/3.6.2/273.txt')
+
+for line in r.text.splitlines():
+	line_in_text += 1
+print(line_in_text)

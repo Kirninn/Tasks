@@ -1,0 +1,26 @@
+Задание № 1.
+
+Напишите простой интерпретатор математического выражения.
+На вход подаётся строка с выражением, состоящим из двух чисел, объединённых бинарным оператором: a operator b, 
+где вместо operator могут использоваться следующие слова: plus, minus, multiply, divide для, соответственно, 
+сложения, вычитания, умножения и целочисленного деления.
+Формат ввода:
+Одна строка, содержащая выражение вида a operator b, 0≤a,b≤1000. Оператор может быть plus, minus, multiply, divide.
+Формат вывода:
+Строка, содержащая целое число − результат вычисления.
+
+Решение № 1.
+
+number_1, operation, number_2 = input().split(' ')
+
+if operation == 'plus':
+  print(int(number_1) + int(number_2))
+  
+if operation == 'minus':
+  print(int(number_1) - int(number_2))
+  
+if operation == 'multiply':
+  print(int(number_1) * int(number_2))
+  
+if operation == 'divide':
+  print(int(number_1) // int(number_2))

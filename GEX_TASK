@@ -12,12 +12,7 @@ for i in folders:
     os.chdir(path)
     for i in files:
         with open(f'{i}.txt', 'w') as f:
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
-            f.write(str(random.randrange(1,100)) + '\n')
+            count = 0
+            while count < 9:
+                f.write(str(random.randrange(1,100)) + '\n')
+                count += 1

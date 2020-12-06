@@ -1,0 +1,12 @@
+import os
+import random
+
+
+folder = []
+
+for item in os.walk(r'C:\Users\Kirninn\Work\tutorial\GEXTASK'):
+    folder.append(item)
+
+for address, dirs, files in folder:
+    for file in files:
+        print(file)

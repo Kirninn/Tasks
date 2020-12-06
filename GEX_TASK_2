@@ -14,6 +14,9 @@ for address, dirs, files in folder:
         all_files.append(address + '\\' + file)
 
 first_file = random.choice(all_files)
+
+all_files.remove(first_file)
+
 second_file = random.choice(all_files)
 
 print(first_file + '\n' + second_file)
@@ -22,14 +25,14 @@ answer = []
 
 first_open = open(first_file, 'r')
 random_number_1 = first_open.read().splitlines()
-first_number = int(random.choice(random_number_1)) + int(random.choice(random_number_1))
+first_number = int(random.choice(random_number_1))
 print(first_number)
 answer.append(first_number)
 first_open.close()
 
 second_open = open(second_file, 'r')
 random_number_2 = second_open.read().splitlines()
-second_number = int(random.choice(random_number_2)) + int(random.choice(random_number_2))
+second_number = int(random.choice(random_number_2))
 print(second_number)
 answer.append(second_number)
 second_open.close()

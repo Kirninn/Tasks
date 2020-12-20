@@ -1,0 +1,53 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+url = 'https://www.citilink.ru/catalog/mobile/notebooks/'
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
+          (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+          'accept': '*/*'}
+
+def get_html(url, params = None):
+    get_html_for_parse = requests.get(url, headers = headers, params = params)
+    return get_html_for_parse
+
+def get_page_count(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    pagination = soup.find_all('a', class_ = 'PaginationWidget__page')
+
+    if pagination:
+        return int(pagination[-1].get_text())
+    else:
+        return 1
+
+def get_content(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    items = soup.find_all('div', class_ = 'product_data__gtm-js')
+
+    laptop = []
+
+    for item in items:
+        laptop.append({
+        'title': item.find('a', class_ = 'ProductCardVertical__name').get_text(strip = True),
+        'price': item.find('span', class_ = 'ProductCardVerticalPrice__price-current_current-price').get_text(strip = True),
+        })
+
+    return laptop
+
+def parse():
+    html = get_html(url)
+    if html.status_code == 200:
+        laptop = []
+        pages_cout = get_page_count(html.text)
+        try:
+            for p in range(1, pages_cout + 1):
+                print(f'Parsing page {p} in {pages_cout}...')
+                html = get_html(url, params = {'p':p})
+                laptop.extend(get_content(html.text))
+        except AttributeError:
+            pass
+        print(laptop)
+    else:
+        print('ERORR!')
+
+parse()
